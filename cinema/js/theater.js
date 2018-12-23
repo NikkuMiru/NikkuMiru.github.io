@@ -1168,6 +1168,58 @@ function registerPlayer( type, object ) {
 	};
 	registerPlayer( "viooz", VioozVideo );
 
+	var AnimeIDHentaiVideo = function() {
+		// Reference:
+		// https://github.com/kcivey/jquery.jwplayer/blob/master/jquery.jwplayer.js
+
+		var flashstream = document.getElementById("video_player"),
+			embed = (flashstream && flashstream.children[2]);
+		
+		// Make the Player's Div Parent Element accessible
+		var flashstream_container = document.getElementById(flashstream.parentNode.id);
+		flashstream_container.style.display="initial";
+		
+		this.player = embed;
+
+		/*
+			Standard Player Methods
+		*/
+		this.setVideo = function( id ) {
+			this.lastStartTime = null;
+		};
+
+		this.setVolume = function( volume ) {
+			this.lastVolume = volume;
+			if ( this.player !== null ) {
+				this.player.jwSetVolume(volume);
+			}
+		};
+
+		this.setStartTime = function( seconds ) {
+			this.seek(seconds);
+		};
+
+		this.seek = function( seconds ) {
+			if ( this.player !== null ) {
+				this.player.jwSetVolume( this.lastVolume );
+
+				var state = this.player.jwGetState();
+
+				if ((state !== "BUFFERING") ||
+					(this.getBufferedTime() > seconds)) {
+					this.player.jwSeek( seconds );
+				}
+
+				// Video isn't playing
+				if ( state === "IDLE" ) {
+					this.player.jwPlay();
+				}
+			}
+		};
+
+	};
+	registerPlayer( "animeidhentai", AnimeIDHentaiVideo );
+
 })();
 
 /*
