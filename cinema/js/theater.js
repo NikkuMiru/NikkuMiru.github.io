@@ -1183,9 +1183,7 @@ function registerPlayer( type, object ) {
 			embed.style.setProperty('left', '0');
 			embed.width = "100%";
 			embed.height = "105%";
-
 			this.player = embed;
-			this.player.play();
 		}
 
 		/*
@@ -1198,7 +1196,7 @@ function registerPlayer( type, object ) {
 		this.setVolume = function( volume ) {
 			this.lastVolume = volume;
 			if ( this.player !== null ) {
-				this.player.jwSetVolume(volume);
+				this.player.setVolume(volume);
 			}
 		};
 
@@ -1208,7 +1206,18 @@ function registerPlayer( type, object ) {
 
 		this.seek = function( seconds ) {
 			if ( this.player !== null ) {
-				this.player.play();
+
+				var state = this.player.getState();
+
+				if ((state !== "BUFFERING") ||
+					(this.getBufferedTime() > seconds)) {
+					this.player.seek( seconds );
+				}
+
+				// Video isn't playing
+				if ( state === "IDLE" ) {
+					this.player.play();
+				}
 			}
 		};
 
@@ -1217,13 +1226,13 @@ function registerPlayer( type, object ) {
 		*/
 		this.getCurrentTime = function() {
 			if ( this.player !== null ) {
-				return this.player.jwGetPosition();
+				return this.player.getPosition();
 			}
 		};
 
 		this.getBufferedTime = function() {
-			return this.player.jwGetDuration() *
-				this.player.jwGetBuffer();
+			return this.player.getDuration() *
+				this.player.getBuffer();
 		};
 
 		this.toggleControls = function( enabled ) {
