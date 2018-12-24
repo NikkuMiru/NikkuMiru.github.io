@@ -1172,16 +1172,10 @@ function registerPlayer( type, object ) {
 		// Reference:
 		// https://github.com/kcivey/jquery.jwplayer/blob/master/jquery.jwplayer.js
 
-		var flashstream = document.getElementById("flashstream"),
-			embed = (flashstream && flashstream.children[4]);
-		
-		// Make the Player's Div Parent Element accessible
-		var flashstream_container = document.getElementById(flashstream.parentNode.id);
-		flashstream_container.style.display="initial";
+		var flashstream = document.getElementById("video_player"),
+			embed = flashstream;
 		
 		if (embed) {
-			// Hide the Banner Ad that overlays the player
-			document.getElementById("rhw_footer").style.display="none";
 			
 			// Force player fullscreen
 			document.body.style.setProperty('overflow', 'hidden');
