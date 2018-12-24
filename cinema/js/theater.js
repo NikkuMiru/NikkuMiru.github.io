@@ -1172,20 +1172,9 @@ function registerPlayer( type, object ) {
 		// Reference:
 		// https://github.com/kcivey/jquery.jwplayer/blob/master/jquery.jwplayer.js
 
-		var flashstream = document.getElementById("video_player"),
-			embed = flashstream;
+		var embed = document.getElementsByTagName('video').item(0);
 		
 		if (embed) {
-			
-			// Force player fullscreen
-			document.body.style.setProperty('overflow', 'hidden');
-			embed.style.setProperty('z-index', '99999');
-			embed.style.setProperty('position', 'fixed');
-			embed.style.setProperty('top', '0');
-			embed.style.setProperty('left', '0');
-			embed.width = "100%";
-			embed.height = "105%";
-
 			this.player = embed;
 		}
 
