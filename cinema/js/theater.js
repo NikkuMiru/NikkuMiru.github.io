@@ -1175,6 +1175,15 @@ function registerPlayer( type, object ) {
 		var embed = $("#video_player video");
 		
 		if (embed) {
+			// Force player fullscreen
+			document.body.style.setProperty('overflow', 'hidden');
+			embed.style.setProperty('z-index', '99999');
+			embed.style.setProperty('position', 'fixed');
+			embed.style.setProperty('top', '0');
+			embed.style.setProperty('left', '0');
+			embed.width = "100%";
+			embed.height = "105%";
+
 			this.player = embed;
 			this.player.play();
 		}
@@ -1199,19 +1208,7 @@ function registerPlayer( type, object ) {
 
 		this.seek = function( seconds ) {
 			if ( this.player !== null ) {
-				this.player.jwSetVolume( this.lastVolume );
-
-				var state = this.player.jwGetState();
-
-				if ((state !== "BUFFERING") ||
-					(this.getBufferedTime() > seconds)) {
-					this.player.jwSeek( seconds );
-				}
-
-				// Video isn't playing
-				if ( state === "IDLE" ) {
-					this.player.jwPlay();
-				}
+				this.player.play();
 			}
 		};
 
