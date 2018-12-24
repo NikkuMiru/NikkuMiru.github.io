@@ -1172,10 +1172,11 @@ function registerPlayer( type, object ) {
 		// Reference:
 		// https://github.com/kcivey/jquery.jwplayer/blob/master/jquery.jwplayer.js
 
-		var embed = document.getElementsByTagName('video').item(0);
+		var embed = $("#video_player video");
 		
 		if (embed) {
 			this.player = embed;
+			this.player.play();
 		}
 
 		/*
