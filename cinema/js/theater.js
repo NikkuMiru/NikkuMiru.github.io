@@ -1184,6 +1184,7 @@ function registerPlayer( type, object ) {
 			embed.width = "100%";
 			embed.height = "105%";
 			this.player = embed;
+			this.player.play()
 		}
 
 		/*
