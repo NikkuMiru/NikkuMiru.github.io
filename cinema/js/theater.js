@@ -1172,7 +1172,7 @@ function registerPlayer( type, object ) {
 		// Reference:
 		// https://github.com/kcivey/jquery.jwplayer/blob/master/jquery.jwplayer.js
 
-		var embed = $("video")[0];
+		var embed = jwplayer();
 		
 		if (embed) {
 			// Force player fullscreen
@@ -1184,7 +1184,6 @@ function registerPlayer( type, object ) {
 			embed.width = "100%";
 			embed.height = "105%";
 			this.player = embed;
-			this.player.play()
 		}
 
 		/*
