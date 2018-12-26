@@ -70,11 +70,7 @@
 				</div>
 				<script>
 				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
-
-				if (swfobject.hasFlashPlayerVersion("1")) {
-					document.getElementById("no_fl").style.display = "none";
-					document.getElementById("yes_fl").style.display = "block";
-				}
+				document.getElementById(swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
 
 				if (false) {
 					document.getElementById("supports").style.display = "none";
@@ -96,6 +92,15 @@
 	<div id="player-container">
 		<div id="player"></div>
 	</div>
+
+	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	var elem = document.getElementById("noflash");
+	if(!swfobject.hasFlashPlayerVersion("1")) {
+		elem.innerText = "Adobe Flash Player not detected! Some videos may not load, press F2 for installation instructions.";
+		gmod.detectFlash(false);
+	}
+	</script>
 
 </body>
 </html>
