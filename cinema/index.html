@@ -10,7 +10,6 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"></script>
 	<script src="https://www.youtube.com/iframe_api" type="text/javascript"></script>
 	<script src="js/theater.min.js" type="text/javascript"></script>
-	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -71,7 +70,7 @@
 				</div>
 				<script>
 				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
-				document.getElementById(swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
+				document.getElementById(!swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
 
 				if (false) {
 					document.getElementById("supports").style.display = "none";
@@ -94,6 +93,7 @@
 		<div id="player"></div>
 	</div>
 
+	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
 	var elem = document.getElementById("noflash");
 	if(!swfobject.hasFlashPlayerVersion("1")) {
