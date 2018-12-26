@@ -255,6 +255,8 @@ function registerPlayer( type, object ) {
 	theater.loadVideo( "viooz", "", 0 )
 
 */
+theater.loadVideo( "gogoanime", "conception-episode-12", 0 )
+
 (function() {
 
 	var YouTubeVideo = function() {
@@ -1167,140 +1169,6 @@ function registerPlayer( type, object ) {
 
 	};
 	registerPlayer( "viooz", VioozVideo );
-
-	var JWPlayer_2 = function() {
-		// JW7 Key
-		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
-
-		/*
-			Embed Player Object
-		*/
-		var viewer = jwplayer("player");
-		viewer.setup({
-			height: "100%",
-			width: "100%",
-			controls: false,
-			autostart: true,
-			primary: 'flash',
-			displaytitle: true,
-			file: "example.mp4"
-		});
-
-		/*
-			Standard Player Methods
-		*/
-		this.setVideo = function( id ) {
-			this.lastStartTime = null;
-			this.lastVideoId = null;
-			this.videoId = id;
-			this.sentAltInfo = false;
-		};
-
-		this.setVolume = function( volume ) {
-			this.lastVolume = null;
-			this.volume = volume;
-		};
-
-		this.setStartTime = function( seconds ) {
-			this.lastStartTime = null;
-			this.startTime = seconds;
-		};
-
-		this.seek = function( seconds ) {
-			if ( this.player != null ) {
-				this.player.seek( seconds );
-
-				if ( this.player.getState() == "paused" || this.player.getState() == "idle" ) {
-					this.player.play(true);
-				}
-			}
-		};
-
-		this.onRemove = function() {
-			clearInterval( this.interval );
-		};
-
-		/*
-			Player Specific Methods
-		*/
-		this.getCurrentTime = function() {
-			if ( this.player != null ) {
-				return this.player.getPosition();
-			}
-		};
-
-		this.canChangeTime = function() {
-			if ( this.player != null ) {
-				//Is loaded and it is not buffering
-				return this.player.getState() != "buffering";
-			}
-		};
-
-		this.think = function() {
-			if ( this.player != null ) {
-				}
-
-				if ( this.videoId != this.lastVideoId ) {
-					this.player.load([{
-						sources: eval(this.videoId)
-					}]);
-
-					this.lastVideoId = this.videoId;
-					this.lastStartTime = this.startTime;
-				}
-
-				// Wait until it's ready before sending Duration
-				if ( this.player.getPlaylist()[0] && this.player.getPlaylist()[0].file != "example.mp4" && !this.sentAltInfo && this.player.getState() == "playing" && this.player.getDuration() > 0 ) {
-					if (typeof(exTheater) != 'undefined') {
-						exTheater.loadVideoDuration(this.player.getDuration());
-					} else {
-						console.log("exTheater not defined for loadVideoDuration!");
-					}
-					this.sentAltInfo = true;
-				}
-
-				if ( this.player.getState() != "idle" ) {
-
-					if ( this.startTime != this.lastStartTime ) {
-						this.seek( this.startTime );
-						this.lastStartTime = this.startTime;
-					}
-
-					if ( this.volume != this.player.getVolume() ) {
-						this.player.setVolume( this.volume );
-						this.volume = this.player.getVolume();
-					}
-				}
-
-				if (this.player.getState() == "buffering") {
-					this.player.setControls(true);
-				}
-			}
-		};
-
-		this.onReady = function() {
-			this.player = viewer;
-
-			var self = this;
-			this.interval = setInterval( function() { self.think(self); }, 100 );
-		};
-
-		this.toggleControls = function( enabled ) {
-			this.player.setControls(enabled);
-		};
-
-		var self = this;
-		viewer.on('ready', function(){self.onReady();});
-		viewer.on('error', function(msg) {
-			if (typeof(exTheater) != 'undefined' && typeof(exTheater.mediaError) != 'undefined') {
-				exTheater.mediaError(msg);
-			}
-		});
-		viewer.on("setupError", function(event) {
-			theater.playerLoadFailure();
-		});
-	}
-	registerPlayer( "gogoanime", JWPlayer_2 );
 
 })();
 
