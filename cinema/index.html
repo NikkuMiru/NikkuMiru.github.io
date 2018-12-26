@@ -71,14 +71,16 @@
 				<script>
 				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
 
-				if (new ActiveXObject('ShockwaveFlash.ShockwaveFlash')) {
-					document.getElementById("no_fl").style.display = "none";
-					document.getElementById("yes_fl").style.display = "block";
-				} else
-				{
-					document.getElementById("yes_fl").style.display = "none";
-					document.getElementById("no_fl").style.display = "block";
+				var flash = false;
+				try {
+					if( new ActiveXObject('ShockwaveFlash.ShockwaveFlash') ) 
+						flash = true;
+				} catch(e) {
+					if(navigator.mimeTypes ["application/x-shockwave-flash"] != undefined) 
+						flash = true;
 				}
+
+				document.getElementById(flash?"no_fl":"yes_fl").style.display = "none";
 
 				if (false) {
 					document.getElementById("supports").style.display = "none";
