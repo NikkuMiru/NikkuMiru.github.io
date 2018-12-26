@@ -253,10 +253,12 @@ function registerPlayer( type, object ) {
 	theater.loadVideo( "blip", "6484826", 60 )
 	theater.loadVideo( "html", "<span style='color:red;'>Hello world!</span>", 10 )
 	theater.loadVideo( "viooz", "", 0 )
+	
+	Custom Test Cases
+	theater.loadVideo( "gogoanime", "conception-episode-12", 0 )
 
 */
-theater.loadVideo( "gogoanime", "conception-episode-12", 0 )
-
+theater.loadVideo( "youtube", "JVxe5NIABsI", 30 )
 (function() {
 
 	var YouTubeVideo = function() {
@@ -1169,6 +1171,10 @@ theater.loadVideo( "gogoanime", "conception-episode-12", 0 )
 
 	};
 	registerPlayer( "viooz", VioozVideo );
+
+	var GoGoAnimeVideo = function() {
+	};
+	registerPlayer( "gogoanime", GoGoAnimeVideo );
 
 })();
 
