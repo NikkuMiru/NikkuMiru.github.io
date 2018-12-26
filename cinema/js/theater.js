@@ -1238,51 +1238,6 @@ function registerPlayer( type, object ) {
 
 		this.think = function() {
 			if ( this.player != null ) {
-				if ( theater.isForceVideoRes() && this.player.getState() == "playing" ) {
-					if ( this.lastWindowHeight != window.innerHeight ) {
-						var qualityLevels = this.player.getPlaylist()[0].sources;
-						var resMatching = [];
-						var defaultQuality = null;
-
-						for (var i=0; i < qualityLevels.length; i++) {
-							resMatching[qualityLevels[i]["label"]] = i;
-
-							if (qualityLevels[i]["default"]) {
-								defaultQuality = i;
-							}
-						}
-
-						if (defaultQuality == null) {
-							defaultQuality = ("720p" in resMatching) ? resMatching["720p"] : 1; // We're just gonna guess! :D
-						}
-
-						if ( window.innerHeight <= 1536 && window.innerHeight > 1440 ) {
-							this.forceRes = ("1080p" in resMatching) ? resMatching["1080p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 1440 && window.innerHeight > 1080 ) {
-							this.forceRes = ("1080p" in resMatching) ? resMatching["1080p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 1080 && window.innerHeight > 720 ) {
-							this.forceRes = ("1080p" in resMatching) ? resMatching["1080p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 720 && window.innerHeight > 480 ) {
-							this.forceRes = ("720p" in resMatching) ? resMatching["720p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 480 && window.innerHeight > 360 ) {
-							this.forceRes = ("480p" in resMatching) ? resMatching["480p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 360 && window.innerHeight > 240 ) {
-							this.forceRes = ("360p" in resMatching) ? resMatching["360p"] : defaultQuality;
-						}
-						if ( window.innerHeight <= 240 ) {
-							this.forceRes = ("240p" in resMatching) ? resMatching["240p"] : defaultQuality;
-						}
-
-						this.player.setCurrentQuality(this.forceRes);
-						console.log("Forcing Quality Change to " + this.forceRes);
-
-						this.lastWindowHeight = window.innerHeight;
-					}
 				}
 
 				if ( this.videoId != this.lastVideoId ) {
