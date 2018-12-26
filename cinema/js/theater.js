@@ -258,7 +258,6 @@ function registerPlayer( type, object ) {
 	theater.loadVideo( "gogoanime", "conception-episode-12", 0 )
 
 */
-theater.loadVideo( "youtube", "JVxe5NIABsI", 30 )
 (function() {
 
 	var YouTubeVideo = function() {
@@ -1177,6 +1176,8 @@ theater.loadVideo( "youtube", "JVxe5NIABsI", 30 )
 	registerPlayer( "gogoanime", GoGoAnimeVideo );
 
 })();
+
+theater.loadVideo( "youtube", "JVxe5NIABsI", 30 )
 
 /*
 	API-specific global functions
