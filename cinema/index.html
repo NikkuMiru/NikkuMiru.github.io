@@ -58,6 +58,22 @@
 					</div>
 				</div>
 			</div>
+			<script>
+				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
+				document.getElementById(swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
+				function macwarn() {
+					document.getElementById("macwarning").style.display = "block";
+				}
+
+				if (navigator.userAgent.toLowerCase().indexOf("gmod")==-1) {
+					document.getElementById("supports").style.display = "none";
+				} else {
+					console.log("CLIPBOARD:https://swampservers.net/video/plugin-guide.html");
+					console.log("RUNLUA:SetClipboardText('https://swampservers.net/video/plugin-guide.html')");
+					console.log("RUNLUA:if not system.IsWindows() then SELF:RunJavascript('macwarn();') end");
+				}
+			</script>
+
 
 
 			<div class="info">To request a video, open the queue by holding down Q and press the 'Request Video' button</div>
