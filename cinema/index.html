@@ -71,11 +71,13 @@
 				<script>
 				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
 
-				if (true) {
+				if (new ActiveXObject('ShockwaveFlash.ShockwaveFlash')) {
 					document.getElementById("no_fl").style.display = "none";
+					document.getElementById("yes_fl").style.display = "block";
 				} else
 				{
 					document.getElementById("yes_fl").style.display = "none";
+					document.getElementById("no_fl").style.display = "block";
 				}
 
 				if (false) {
