@@ -70,7 +70,12 @@
 				</div>
 				<script>
 				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
-				document.getElementById(!swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
+
+				if (swfobject.hasFlashPlayerVersion("1")) {
+					document.getElementById("no_fl").style.display = "none";
+				} else {
+					document.getElementById("yes_fl").style.display = "none";
+				}
 
 				if (false) {
 					document.getElementById("supports").style.display = "none";
