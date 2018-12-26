@@ -1177,8 +1177,6 @@ function registerPlayer( type, object ) {
 
 })();
 
-theater.loadVideo( "youtube", "JVxe5NIABsI", 30 )
-
 /*
 	API-specific global functions
 */
