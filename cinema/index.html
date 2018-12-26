@@ -29,44 +29,44 @@
 		</div>
 		
 		<div id="supports" class="well" style="font-size:20px;padding-top:30px;padding-bottom:30px;cursor: pointer;">
-				<div class="row">
-					<div class="col-sm-6" onclick="location.href='#chromium'">
-						<div id="yes_ch" class="text-center">
-							<div style="height:100px;background-image:url(images/chromium.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-ok" style="color:green;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
-							<br>You have Chromium
-						</div>
-						<div id="no_ch" class="text-center">
-							<div style="height:100px;background-image:url(images/chromium.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-remove" style="color:red;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
-							<br>You don't have Chromium
-						</div>
+			<div class="row">
+				<div class="col-sm-6" onclick="location.href='#chromium'">
+					<div id="yes_ch" class="text-center">
+						<div style="height:100px;background-image:url(images/chromium.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-ok" style="color:green;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
+						<br>You have Chromium
 					</div>
-					<div class="col-sm-6" onclick="location.href='#flash'">
-						<div id="yes_fl" class="text-center">
-							<div style="height:100px;background-image:url(images/flash.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-ok" style="color:green;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
-							<br>You have Flash
-						</div>
-						<div id="no_fl" class="text-center">
-							<div style="height:100px;background-image:url(images/flash.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-remove" style="color:red;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
-							<br>You don't have Flash
-						</div>
+					<div id="no_ch" class="text-center">
+						<div style="height:100px;background-image:url(images/chromium.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-remove" style="color:red;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
+						<br>You don't have Chromium
+					</div>
+				</div>
+				<div class="col-sm-6" onclick="location.href='#flash'">
+					<div id="yes_fl" class="text-center">
+						<div style="height:100px;background-image:url(images/flash.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-ok" style="color:green;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
+						<br>You have Flash
+					</div>
+					<div id="no_fl" class="text-center">
+						<div style="height:100px;background-image:url(images/flash.png);background-size:100px;background-repeat:no-repeat;background-position:center;"><span class="glyphicon glyphicon-remove" style="color:red;font-size:50px;position:relative;top:55px;left:40px;"></span></div>
+						<br>You don't have Flash
 					</div>
 				</div>
 			</div>
-			<script>
-				document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
-				document.getElementById(swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
-				function macwarn() {
-					document.getElementById("macwarning").style.display = "block";
-				}
+		</div>
+		<script>
+			document.getElementById(navigator.userAgent.indexOf("Awesomium")==-1?"no_ch":"yes_ch").style.display = "none";
+			document.getElementById(swfobject.hasFlashPlayerVersion("1")?"no_fl":"yes_fl").style.display = "none";
+			function macwarn() {
+				document.getElementById("macwarning").style.display = "block";
+			}
 
-				if (navigator.userAgent.toLowerCase().indexOf("gmod")==-1) {
-					document.getElementById("supports").style.display = "none";
-				} else {
-					console.log("CLIPBOARD:https://swampservers.net/video/plugin-guide.html");
-					console.log("RUNLUA:SetClipboardText('https://swampservers.net/video/plugin-guide.html')");
-					console.log("RUNLUA:if not system.IsWindows() then SELF:RunJavascript('macwarn();') end");
-				}
-			</script>
+			if (navigator.userAgent.toLowerCase().indexOf("gmod")==-1) {
+				document.getElementById("supports").style.display = "none";
+			} else {
+				console.log("CLIPBOARD:https://swampservers.net/video/plugin-guide.html");
+				console.log("RUNLUA:SetClipboardText('https://swampservers.net/video/plugin-guide.html')");
+				console.log("RUNLUA:if not system.IsWindows() then SELF:RunJavascript('macwarn();') end");
+			}
+		</script>
 		
 		<!-- Information -->
 		<div class="info-container">
