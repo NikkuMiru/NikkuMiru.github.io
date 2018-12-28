@@ -1172,10 +1172,6 @@ function registerPlayer( type, object ) {
 	registerPlayer( "viooz", VioozVideo );
 
 	var CustomVideo = function() {
-
-		// JW7 Key
-		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
-
 		/*
 			Standard Player Methods
 		*/
@@ -1183,7 +1179,9 @@ function registerPlayer( type, object ) {
 			$.ajax({
 			  url: 'js/test.php?data='+id,
 			  success: function(data) {
-			    /*
+				// JW7 Key
+				jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
+			  	/*
 				Embed Player Object
 				*/
 				var viewer = jwplayer("player");
