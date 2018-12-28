@@ -1179,6 +1179,7 @@ function registerPlayer( type, object ) {
 			$.ajax({
 			  url: 'js/test.php?data='+id,
 			  success: function(data) {
+				console.log( data.replace(/&amp;/g, '&') );
 				// JW7 Key
 				jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
 			  	/*
