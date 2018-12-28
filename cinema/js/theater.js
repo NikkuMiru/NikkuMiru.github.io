@@ -1171,9 +1171,36 @@ function registerPlayer( type, object ) {
 	};
 	registerPlayer( "viooz", VioozVideo );
 
-	var GoGoAnimeVideo = function() {
+	var CustomVideo = function() {
+
+		// JW7 Key
+		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
+
+		/*
+			Standard Player Methods
+		*/
+		this.setVideo = function( id ) {
+			$.ajax({
+			  url: 'js/test.php?data='+id,
+			  success: function(data) {
+			    /*
+				Embed Player Object
+				*/
+				var viewer = jwplayer("player");
+				viewer.setup({
+					height: "100%",
+					width: "100%",
+					controls: false,
+					autostart: true,
+					primary: 'flash',
+					displaytitle: true,
+					file: data.replace(/&amp;/g, '&')
+				});
+			  }
+			});
+		};
 	};
-	registerPlayer( "gogoanime", GoGoAnimeVideo );
+	registerPlayer( "custom", CustomVideo );
 
 })();
 
