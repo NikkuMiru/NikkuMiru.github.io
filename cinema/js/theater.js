@@ -1180,11 +1180,7 @@ function registerPlayer( type, object ) {
 			Standard Player Methods
 		*/
 		this.setVideo = function( id ) {
-			$.ajax({
-			  url: 'https://koshitso.info/js/test.php?data='+id,
-			  success: function(data) {
-				console.log( data.replace(/&amp;/g, '&') );
-			  	/*
+			/*
 				Embed Player Object
 				*/
 				var viewer = jwplayer("player");
@@ -1195,10 +1191,8 @@ function registerPlayer( type, object ) {
 					autostart: true,
 					primary: 'flash',
 					displaytitle: true,
-					file: data.replace(/&amp;/g, '&')
+					file: 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-1-mnvnc/natural-1-720p-lev.mp4?md5=bJ9ELyLCAeV6xUxn0KVQXw&expires=1546068315'
 				});
-			  }
-			});
 		};
 	};
 	registerPlayer( "custom", CustomVideo );
