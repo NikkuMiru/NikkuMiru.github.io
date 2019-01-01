@@ -1199,7 +1199,7 @@ function registerPlayer( type, object ) {
 
 
 			var source = document.createElement('source');
-			source.setAttribute('src', 'https://px0.satella.tv/dl-guest/videos/2018/12/houkago-no-yuutousei-3-k31kc/houkago-no-yuutousei-3-720p-lev.mp4?md5=eOTvfznPGusj54WgfnEhjw&expires=1546416317');
+			source.setAttribute('src', 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-2-duo-1-rt41qn/natural-2-duo-1-720p-lev.mp4?md5=vnz0Jv6E_Og1t0OHzRrmeg&expires=1546419059');
 			source.setAttribute('type', 'video/mp4')
 
 			document.getElementById('my-video').appendChild(source);
