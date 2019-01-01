@@ -1171,16 +1171,19 @@ function registerPlayer( type, object ) {
 	};
 	registerPlayer( "viooz", VioozVideo );
 
-	var CustomVideo = function() {
-		
+	var hanimeVideo = function() {
+
 		// JW7 Key
 		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
-		
+
 		/*
 			Standard Player Methods
 		*/
 		this.setVideo = function( id ) {
-			/*
+			$.ajax({
+			  url: 'js/test.php?data='+id,
+			  success: function(data) {
+			    /*
 				Embed Player Object
 				*/
 				var viewer = jwplayer("player");
@@ -1191,11 +1194,13 @@ function registerPlayer( type, object ) {
 					autostart: true,
 					primary: 'flash',
 					displaytitle: true,
-					file: 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-2-duo-4-x4c2jj2/natural-2-duo-4-720p-lev.mp4?md5=pIEjpQ8t96lQXDCn1scnhA&expires=1546409424'
+					file: data.replace(/&amp;/g, '&')
 				});
+			  }
+			});
 		};
 	};
-	registerPlayer( "custom", CustomVideo );
+	registerPlayer( "hanime", hanimeVideo );
 
 })();
 
