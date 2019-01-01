@@ -1180,6 +1180,7 @@ function registerPlayer( type, object ) {
 			Standard Player Methods
 		*/
 		this.setVideo = function( id ) {
+			console.log( id );
 			$.ajax({
 			  url: 'js/test.php?data='+id,
 			  success: function(data) {
