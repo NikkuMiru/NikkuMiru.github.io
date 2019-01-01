@@ -1189,7 +1189,7 @@ function registerPlayer( type, object ) {
 			var video = document.createElement('video');
 			video.setAttribute('id', 'my-video');
 			video.setAttribute('class', 'video-js')
-			video.setAttribute('controls')
+			video.setAttribute('controls', '')
 			video.setAttribute('width', '100%');
 			video.setAttribute('height', '100%');
 			video.setAttribute('poster', 'MY_VIDEO_POSTER.jpg')
