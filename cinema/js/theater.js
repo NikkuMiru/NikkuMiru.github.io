@@ -1191,7 +1191,7 @@ function registerPlayer( type, object ) {
 					autostart: true,
 					primary: 'flash',
 					displaytitle: true,
-					file: 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-1-mnvnc/natural-1-720p-lev.mp4?md5=bJ9ELyLCAeV6xUxn0KVQXw&expires=1546068315'
+					file: 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-2-duo-4-x4c2jj2/natural-2-duo-4-720p-lev.mp4?md5=pIEjpQ8t96lQXDCn1scnhA&expires=1546409424'
 				});
 		};
 	};
