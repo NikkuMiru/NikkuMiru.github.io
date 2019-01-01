@@ -1177,16 +1177,43 @@ function registerPlayer( type, object ) {
 		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
 
 		/*
+			Embed Player Object
+		*/
+		this.embed = function() {
+
+			var elem = document.getElementById("my-video");
+			if (elem) {
+				elem.parentNode.removeChild(elem);
+			}
+
+			var video = document.createElement('video');
+			video.setAttribute('id', 'my-video');
+			video.setAttribute('class', 'video-js')
+			video.setAttribute('controls preload', 'auto')
+			video.setAttribute('width', '100%');
+			video.setAttribute('height', '100%');
+			video.setAttribute('poster', 'MY_VIDEO_POSTER.jpg')
+			video.setAttribute('data-setup', '{}')
+
+			document.getElementById('player').appendChild(video);
+
+
+			var source = document.createElement('source');
+			source.setAttribute('src', 'https://px0.satella.tv/dl-guest/videos/2018/12/houkago-no-yuutousei-3-k31kc/houkago-no-yuutousei-3-720p-lev.mp4?md5=eOTvfznPGusj54WgfnEhjw&expires=1546416317');
+			source.setAttribute('type', 'video/mp4')
+
+			document.getElementById('my-video').appendChild(source);
+
+		};
+
+		/*
 			Standard Player Methods
 		*/
 		this.setVideo = function( id ) {
+			/*
 			$.ajax({
-			  url: 'https://koshitso.info/js/test.php?data='+id,
+			  url: 'js/test.php?data='+id,
 			  success: function(data) {
-			  	console.log( data );
-			    	/*
-				Embed Player Object
-				*/
 				var viewer = jwplayer("player");
 				viewer.setup({
 					height: "100%",
@@ -1199,6 +1226,8 @@ function registerPlayer( type, object ) {
 				});
 			  }
 			});
+			*/
+			this.embed();
 		};
 	};
 	registerPlayer( "hanime", hanimeVideo );
