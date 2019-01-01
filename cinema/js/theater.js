@@ -1181,7 +1181,7 @@ function registerPlayer( type, object ) {
 		*/
 		this.setVideo = function( id ) {
 			$.ajax({
-			  url: 'http://zap64704-1.plesk06.zap-webspace.com/cinema/js/test.php?data='+id,
+			  url: 'https://koshitso.info/js/test.php?data='+id,
 			  success: function(data) {
 			  	console.log( data );
 			    	/*
