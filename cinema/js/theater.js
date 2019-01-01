@@ -1173,9 +1173,6 @@ function registerPlayer( type, object ) {
 
 	var hanimeVideo = function() {
 
-		// JW7 Key
-		jwplayer.key="GBbtI9R8M4R2gQOTSs7m7AdoMdxpK3DD4IcgmQ==";
-
 		/*
 			Embed Player Object
 		*/
