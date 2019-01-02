@@ -1197,7 +1197,7 @@ function registerPlayer( type, object ) {
 
 
 			var source = document.createElement('source');
-			source.setAttribute('src', 'http://gateway.play44.net:3010/old/at__bravest_warriors_4_-_01.mp4?st=NDhkODNlYWNjNmMxZmZjYzRkNDA2ODliYWFjYWQ4NTc&e=1546387154');
+			source.setAttribute('src', 'https://px0.satella.tv/dl-guest/videos/2018/12/natural-2-duo-4-x4c2jj2/natural-2-duo-4-720p-lev.mp4?md5=kwb-0cXGhwqEi73wBpY9pQ&expires=1546478783');
 			source.setAttribute('type', 'video/mp4')
 
 			document.getElementById('my-video').appendChild(source);
